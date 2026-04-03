@@ -1,0 +1,141 @@
+/* --- 1. 基本リセット --- */
+.first-entry, .post-entry, .profile-img, .profile-inner {
+    display: none !important;
+}
+
+html, body, .main, .home-info {
+    overflow: scroll !important;
+}
+
+.header {
+    margin-left: 0 !important;
+    margin-right: auto !important;
+    max-width: 100% !important;
+    padding-left: 0px !important; /* .main の余白と合わせるのが綺麗です */
+    
+    /* スクロール時に上部に固定する設定 */
+    position: fixed !important;
+    top: 0;
+    z-index: 1000;
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
+/* ナビゲーションの背景も念のため統一 */
+.nav {
+    background: transparent !important;
+    background-color: transparent !important;
+    justify-content: flex-start !important;
+}
+
+.main {
+    margin-left: 0 !important;
+    margin: 0 !important;
+    max-width: 1200px !important;
+    padding-left:0px !important;
+}
+
+.home-info {
+    display: block !important;
+    text-align: left !important;
+    padding: 40px 0 !important;
+    width: 100% !important;
+}
+
+/* --- 2. レイアウト (800px以上) --- */
+@media screen and (min-width: 800px) {
+    .portfolio-grid {
+        display: table !important;
+        grid-template-columns: 240px 1fr !important;
+        gap: 30px;
+        align-items: start;
+    }
+
+    .left-sidebar {
+        position: fixed !important;
+        top: 150px; /* 数値を現実的な位置に修正 */
+        text-align: center;
+        display: table-cell !important;
+        width: 25%;
+        min-width: 0;
+    }
+
+    .right-content {
+        flex: 1;
+        min-width: 0;
+        width: 70%; /* 研究内容などの長い文章が横に突き抜けるのを防ぐ魔法の1行 */
+        text-align: left !important;
+        position: relative !important;
+        display: table-cell !important;
+    }
+}
+
+/* --- 3. パーツ装飾 --- */
+.profile-pic-fixed {
+    width: 160px !important;
+    height: 160px !important;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 20px !important;
+    display: block;
+    border: 2px solid var(--tertiary);
+}
+
+.my-name { font-size: 1.5rem !important; font-weight: 800; margin-bottom: 10px; }
+.my-bio { font-size: 0.95rem; margin-bottom: 5px; color: var(--secondary); }
+.my-tags { font-size: 0.8rem; color: #888; line-height: 1.4; }
+
+/* --- 4. タイムライン --- */
+.content-title { 
+    font-size: 1.6rem; 
+    font-weight: 700; 
+    border-bottom: 1px solid #eee; 
+    padding-bottom: 10px; 
+    margin: 40px 0 30px; 
+}
+
+.pro-timeline { position: relative; }
+.pro-timeline::before {
+    content: '';
+    position: absolute;
+    left: 100px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #e6ebf1;
+}
+
+.tl-item {
+    display: flex;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.tl-date {
+    width: 80px;
+    text-align: right;
+    padding-right: 20px;
+    font-size: 0.9rem;
+    color: #99a;
+    margin-top: 5px;
+}
+
+.tl-dot {
+    position: absolute;
+    left: 94px;
+    top: 10px;
+    width: 14px;
+    height: 14px;
+    background: #004bb1;
+    border-radius: 50%;
+    z-index: 2;
+    border: 3px solid #fff;
+}
+
+.tl-text { padding-left: 40px; flex: 1; }
+.tl-univ { font-size: 1.2rem; font-weight: 700; margin: 0 0 5px 0 !important; }
+.tl-dept { font-size: 1rem; color: #666; margin: 0 !important; }
+
+.ex1 { line-height: 1.8; }
+.clean-list { list-style: none; padding: 0; }
+.clean-list li { margin-bottom: 10px; }
